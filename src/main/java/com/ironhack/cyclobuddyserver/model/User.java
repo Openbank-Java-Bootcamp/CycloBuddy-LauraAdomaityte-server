@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
-import java.util.Collections;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
@@ -35,10 +35,12 @@ public class User {
     private String bicycleType;
     private Integer averageSpeed;
     private Integer averageKmPerMonth;
-    @ManyToMany(
-            fetch = FetchType.EAGER
+
+    @OneToMany(
+            mappedBy="user"
     )
-    private Set<Role> rides = Collections.emptySet();
+    private Set<Ride> rides = Collections.emptySet();
+
     @ManyToMany(
             fetch = FetchType.EAGER
     )

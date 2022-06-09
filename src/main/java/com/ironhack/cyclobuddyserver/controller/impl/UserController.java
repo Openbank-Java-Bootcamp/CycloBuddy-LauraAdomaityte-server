@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/api/users"})
+@RequestMapping("/api")
 public class UserController implements UserControllerInterface {
 
     @Autowired
     private UserServiceInterface userServiceInterface;
 
-    public UserController() {
-    }
-
-    @GetMapping({"/{id}"})
+    @GetMapping({"/users/{id}"})
     @ResponseStatus(HttpStatus.OK)
     public User getUserById(@PathVariable(name = "id") Integer userId) {
         return this.userServiceInterface.findUserById(userId);
