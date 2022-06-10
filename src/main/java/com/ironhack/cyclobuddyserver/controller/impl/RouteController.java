@@ -5,10 +5,7 @@ import com.ironhack.cyclobuddyserver.model.Route;
 import com.ironhack.cyclobuddyserver.service.interfaces.RouteServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,7 +24,7 @@ public class RouteController implements RouteControllerInterface {
 
     @GetMapping("/routes/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Route getRouteById(Integer id){
+    public Route getRouteById(@PathVariable(name = "id") Integer id){
         return routeServiceInterface.getRouteById(id);
     }
 

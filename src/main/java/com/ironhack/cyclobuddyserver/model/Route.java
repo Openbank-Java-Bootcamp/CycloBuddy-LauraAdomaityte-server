@@ -28,18 +28,15 @@ public class Route {
     )
     private Integer rideAssigned;
 
-    @OneToOne(
-            mappedBy = "route"
-    )
-    private Ride ride;
 
-    public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType, Integer rideAssigned) {
+
+
+    public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType) {
         this.distance = distance;
         this.elevationGain = elevationGain;
         this.estimatedRouteDuration = estimatedRouteDuration;
         this.startPlace = startPlace;
         this.endPlace = endPlace;
         this.bicycleType = bicycleType;
-        this.rideAssigned = rideAssigned;
     }
 }
