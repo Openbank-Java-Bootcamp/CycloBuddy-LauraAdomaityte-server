@@ -3,6 +3,7 @@ package com.ironhack.cyclobuddyserver.controller.impl;
 import com.ironhack.cyclobuddyserver.DTO.RideDTO;
 import com.ironhack.cyclobuddyserver.controller.interfaces.RideControllerInterface;
 import com.ironhack.cyclobuddyserver.model.Ride;
+import com.ironhack.cyclobuddyserver.repository.RideRepository;
 import com.ironhack.cyclobuddyserver.service.interfaces.RideServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +21,9 @@ public class RideController implements RideControllerInterface {
     @Autowired
     private RideServiceInterface rideServiceInterface;
 
+    @Autowired
+    private RideRepository rideRepository;
+
     @GetMapping("/rides")
     @ResponseStatus(HttpStatus.OK)
     public List<Ride> getAllRides(){
@@ -28,7 +32,7 @@ public class RideController implements RideControllerInterface {
 
     @GetMapping("/rides/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Ride getRideById(Integer id){
+    public Ride getRideById(@PathVariable(name = "id")Integer id){
         return rideServiceInterface.getRideById(id);
     }
 
