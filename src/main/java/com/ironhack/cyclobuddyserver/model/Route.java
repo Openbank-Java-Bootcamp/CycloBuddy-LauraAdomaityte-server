@@ -1,9 +1,7 @@
 package com.ironhack.cyclobuddyserver.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -28,7 +26,15 @@ public class Route {
     )
     private Integer rideAssigned;
 
-
+   /* public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType, Integer rideAssigned) {
+        this.distance = distance;
+        this.elevationGain = elevationGain;
+        this.estimatedRouteDuration = estimatedRouteDuration;
+        this.startPlace = startPlace;
+        this.endPlace = endPlace;
+        this.bicycleType = bicycleType;
+        this.rideAssigned = rideAssigned;
+    }*/
 
 
     public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType) {
@@ -39,4 +45,6 @@ public class Route {
         this.endPlace = endPlace;
         this.bicycleType = bicycleType;
     }
+
+
 }

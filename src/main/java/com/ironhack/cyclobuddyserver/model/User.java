@@ -1,5 +1,6 @@
 package com.ironhack.cyclobuddyserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,14 +29,15 @@ public class User {
             message = "Provide a valid email address."
     ) String email;
     private @Pattern(
-            regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,:])(?=\\S+$).{8,}",
-            message = "Password must have at least 8 characters and contain at least one number, one lowercase, one uppercase letter and one of the following signs: @#$%^&+=.,:"
+            regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.,:])(?=\\S+$).{7,}",
+            message = "Password must have at least 7 characters and contain at least one number, one lowercase, one uppercase letter and one of the following signs: @#$%^&+=.,:"
     ) String password;
     private String city;
     private String bicycleType;
     private Integer averageSpeed;
     private Integer averageKmPerMonth;
 
+    @JsonIgnore
     @OneToMany(
             mappedBy="user"
     )
