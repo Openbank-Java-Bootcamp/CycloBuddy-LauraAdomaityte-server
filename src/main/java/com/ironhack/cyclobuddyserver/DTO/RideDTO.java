@@ -15,11 +15,20 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class RideDTO {
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime rideDateAndTime;
     private String meetingLocation;
     private String closestCity;
     private String rideDescription;
     private Integer userId;
     private Route route;
+
+//    public RideDTO(String rideDateAndTime, String meetingLocation, String closestCity, String rideDescription, Integer userId, Route route) {
+//        this.rideDateAndTime = LocalDateTime.parse(rideDateAndTime.replace("T", " "));
+//        this.meetingLocation = meetingLocation;
+//        this.closestCity = closestCity;
+//        this.rideDescription = rideDescription;
+//        this.userId = userId;
+//        this.route = route;
+//    }
 }

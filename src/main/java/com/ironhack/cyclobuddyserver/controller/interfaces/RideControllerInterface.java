@@ -21,5 +21,5 @@ public interface RideControllerInterface {
 
     public void deleteRide(@PathVariable Integer id);
 
-    public List<Ride> findUserRides(Authentication authentication);
+//    public List<Ride> findUserRides(Authentication authentication);
 }

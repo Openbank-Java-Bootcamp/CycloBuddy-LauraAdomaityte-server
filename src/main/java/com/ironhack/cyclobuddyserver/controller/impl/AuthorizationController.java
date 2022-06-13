@@ -41,9 +41,10 @@ public class AuthorizationController implements AuthorizationControllerInterface
     public String verifyToken(Authentication authentication) {
         String email = (String) authentication.getPrincipal();
         User userFromDb = userRepository.findByEmail(email);
-        UserVerifyDTO userVerifyDTO = new UserVerifyDTO(userFromDb.getName());
+        UserVerifyDTO userVerifyDTO = new UserVerifyDTO(userFromDb.getName(), userFromDb.getId());
         Gson gson = new Gson();
         String userDetails = gson.toJson(userVerifyDTO);
         return userDetails;
     }
 }
+
