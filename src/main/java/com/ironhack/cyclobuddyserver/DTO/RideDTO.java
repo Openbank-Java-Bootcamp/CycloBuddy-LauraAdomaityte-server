@@ -23,12 +23,6 @@ public class RideDTO {
     private Integer userId;
     private Route route;
 
-//    public RideDTO(String rideDateAndTime, String meetingLocation, String closestCity, String rideDescription, Integer userId, Route route) {
-//        this.rideDateAndTime = LocalDateTime.parse(rideDateAndTime.replace("T", " "));
-//        this.meetingLocation = meetingLocation;
-//        this.closestCity = closestCity;
-//        this.rideDescription = rideDescription;
-//        this.userId = userId;
-//        this.route = route;
-//    }
+
+
 }

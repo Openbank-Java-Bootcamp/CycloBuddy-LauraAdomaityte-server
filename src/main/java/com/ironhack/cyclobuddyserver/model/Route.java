@@ -26,7 +26,7 @@ public class Route {
     )
     private Integer rideAssigned;
 
-   /* public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType, Integer rideAssigned) {
+   public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType, Integer rideAssigned) {
         this.distance = distance;
         this.elevationGain = elevationGain;
         this.estimatedRouteDuration = estimatedRouteDuration;
@@ -34,17 +34,17 @@ public class Route {
         this.endPlace = endPlace;
         this.bicycleType = bicycleType;
         this.rideAssigned = rideAssigned;
-    }*/
-
-
-    public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType) {
-        this.distance = distance;
-        this.elevationGain = elevationGain;
-        this.estimatedRouteDuration = estimatedRouteDuration;
-        this.startPlace = startPlace;
-        this.endPlace = endPlace;
-        this.bicycleType = bicycleType;
     }
+
+
+//    public Route(Integer distance, Integer elevationGain, Integer estimatedRouteDuration, String startPlace, String endPlace, String bicycleType) {
+//        this.distance = distance;
+//        this.elevationGain = elevationGain;
+//        this.estimatedRouteDuration = estimatedRouteDuration;
+//        this.startPlace = startPlace;
+//        this.endPlace = endPlace;
+//        this.bicycleType = bicycleType;
+//    }
 
 
 }
