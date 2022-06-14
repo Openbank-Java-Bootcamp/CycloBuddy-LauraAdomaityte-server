@@ -1,5 +1,6 @@
 package com.ironhack.cyclobuddyserver.controller.impl;
 
+import com.ironhack.cyclobuddyserver.DTO.RouteDTO;
 import com.ironhack.cyclobuddyserver.controller.interfaces.RouteControllerInterface;
 import com.ironhack.cyclobuddyserver.model.Route;
 import com.ironhack.cyclobuddyserver.service.interfaces.RouteServiceInterface;
@@ -28,4 +29,9 @@ public class RouteController implements RouteControllerInterface {
         return routeServiceInterface.getRouteById(id);
     }
 
+    @PostMapping("/routes")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveTask(@RequestBody RouteDTO routeDTO){
+        routeServiceInterface.saveRoute(routeDTO);
+    }
 }

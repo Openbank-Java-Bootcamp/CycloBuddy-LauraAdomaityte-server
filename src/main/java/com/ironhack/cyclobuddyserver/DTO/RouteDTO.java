@@ -18,5 +18,6 @@ public class RouteDTO {
     private String startPlace;
     private String endPlace;
     private String bicycleType;
+    private Integer rideAssigned;
 
 }

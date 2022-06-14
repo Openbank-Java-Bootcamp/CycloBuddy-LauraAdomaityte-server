@@ -44,13 +44,13 @@ public class RideController implements RideControllerInterface {
 
     @PostMapping("/rides")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addProject(@RequestBody @Valid RideDTO rideDTO){
+    public void addProject(@RequestBody RideDTO rideDTO){
         rideServiceInterface.saveRide(rideDTO);
     }
 
     @PutMapping("/rides/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateRide(@PathVariable Integer id, @RequestBody @Valid Ride ride){
+    public void updateRide(@PathVariable Integer id, @RequestBody Ride ride){
         rideServiceInterface.updateRide(id, ride);
     }
 
