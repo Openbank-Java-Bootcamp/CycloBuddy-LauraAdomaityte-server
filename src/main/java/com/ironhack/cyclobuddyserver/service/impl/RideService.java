@@ -51,8 +51,11 @@ public class RideService implements RideServiceInterface {
 
     public void updateRide(Integer id, Ride ride) {
         Ride rideFromDB = rideRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ride is not found"));
-        ride.setId(rideFromDB.getId());
-        rideRepository.save(ride);
+        rideFromDB.setRideDateAndTime(ride.getRideDateAndTime());
+        rideFromDB.setRideDescription(ride.getRideDescription());
+        rideFromDB.setClosestCity(ride.getClosestCity());
+        rideFromDB.setMeetingLocation(ride.getMeetingLocation());
+        rideRepository.save(rideFromDB);
     }
 
     public void deleteRide(Integer id){
