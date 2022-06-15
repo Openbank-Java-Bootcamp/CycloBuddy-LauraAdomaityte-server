@@ -1,6 +1,7 @@
 package com.ironhack.cyclobuddyserver.service.impl;
 
 import com.ironhack.cyclobuddyserver.DTO.RouteDTO;
+import com.ironhack.cyclobuddyserver.model.Ride;
 import com.ironhack.cyclobuddyserver.model.Route;
 import com.ironhack.cyclobuddyserver.repository.RideRepository;
 import com.ironhack.cyclobuddyserver.repository.RouteRepository;
@@ -39,6 +40,11 @@ public class RouteService implements RouteServiceInterface {
         newRoute.setBicycleType(routeDTO.getBicycleType());
         newRoute.setRideAssigned(rideRepository.findById(routeDTO.getRideAssigned()).get().getId());
         routeRepository.save(newRoute);
+        Ride updatedRide = rideRepository.findById(routeDTO.getRideAssigned()).get();
+        updatedRide.setRoute(routeRepository.findById(newRoute.getId()).get());
+        rideRepository.save(updatedRide);
+
+
     }
 
 
