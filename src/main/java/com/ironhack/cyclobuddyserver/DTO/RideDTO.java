@@ -21,6 +21,7 @@ public class RideDTO {
     private String closestCity;
     private String rideDescription;
     private Integer userId;
+    private String picture;
     private Route route;
 
 

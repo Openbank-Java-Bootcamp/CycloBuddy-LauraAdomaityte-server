@@ -26,6 +26,8 @@ public class Ride {
     private String meetingLocation;
     private String closestCity;
     private String rideDescription;
+    @Lob
+    private String picture;
 
 
     @ManyToOne(fetch = FetchType.EAGER)

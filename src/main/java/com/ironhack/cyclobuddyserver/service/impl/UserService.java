@@ -1,5 +1,6 @@
 package com.ironhack.cyclobuddyserver.service.impl;
 
+import com.ironhack.cyclobuddyserver.model.Ride;
 import com.ironhack.cyclobuddyserver.model.User;
 import com.ironhack.cyclobuddyserver.repository.RoleRepository;
 import com.ironhack.cyclobuddyserver.repository.UserRepository;
@@ -68,5 +69,15 @@ public class UserService implements UserServiceInterface, UserDetailsService {
         return (User)this.userRepository.findById(id).orElseThrow(() -> {
             return new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
         });
+    }
+
+    //update user info
+    public void updateUser(Integer id, User user) {
+        User userFromDB = userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found"));
+        userFromDB.setCity(user.getCity());
+        userFromDB.setAverageSpeed(user.getAverageSpeed());
+        userFromDB.setAverageKmPerMonth(user.getAverageKmPerMonth());
+        userFromDB.setBicycleType(user.getBicycleType());
+        userRepository.save(userFromDB);
     }
 }

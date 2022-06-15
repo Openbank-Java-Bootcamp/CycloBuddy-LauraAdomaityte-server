@@ -37,6 +37,8 @@ public class User {
     private Integer averageSpeed;
     private Integer averageKmPerMonth;
 
+
+
     @JsonIgnore
     @OneToMany(
             mappedBy="user"
