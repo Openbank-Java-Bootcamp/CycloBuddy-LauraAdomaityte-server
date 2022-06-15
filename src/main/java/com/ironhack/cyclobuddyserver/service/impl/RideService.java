@@ -45,6 +45,7 @@ public class RideService implements RideServiceInterface {
         newRide.setClosestCity(rideDTO.getClosestCity());
         newRide.setRideDescription(rideDTO.getRideDescription());
         newRide.setUser(userRepository.findById(rideDTO.getUserId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found")));
+        newRide.setPicture(rideDTO.getPicture());
         newRide.setRoute(rideDTO.getRoute());
         rideRepository.save(newRide);
     }
