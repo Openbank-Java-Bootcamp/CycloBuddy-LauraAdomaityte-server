@@ -29,11 +29,11 @@ public class Ride {
     @Lob
     private String picture;
 
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
+    //one ride has one route
     @OneToOne(
             cascade = {CascadeType.ALL}
     )

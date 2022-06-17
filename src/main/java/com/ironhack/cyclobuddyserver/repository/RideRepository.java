@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface RideRepository extends JpaRepository<Ride, Integer> {
 
+    //get rides by user id
     @Query(value = "SELECT * FROM ride WHERE user_id = :userId", nativeQuery = true)
     List<Ride> findRidesIdByUserId(Integer userId);
 }

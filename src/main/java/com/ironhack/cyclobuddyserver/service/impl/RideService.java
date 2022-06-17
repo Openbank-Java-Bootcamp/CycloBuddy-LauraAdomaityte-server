@@ -30,14 +30,17 @@ public class RideService implements RideServiceInterface {
     @Autowired
     private UserRepository userRepository;
 
+    //method to get all the rides
     public List<Ride> getAllRides(){
         return rideRepository.findAll();
     }
 
+    //method to get ride by it´s id
     public Ride getRideById(Integer id){
         return rideRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ride not found"));
     }
 
+    //method to add a new ride
     public void saveRide(RideDTO rideDTO) {
         Ride newRide = new Ride();
         newRide.setRideDateAndTime(rideDTO.getRideDateAndTime());
@@ -50,6 +53,7 @@ public class RideService implements RideServiceInterface {
         rideRepository.save(newRide);
     }
 
+    //method to edit the ride
     public void updateRide(Integer id, Ride ride) {
         Ride rideFromDB = rideRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ride is not found"));
         rideFromDB.setRideDateAndTime(ride.getRideDateAndTime());
@@ -59,11 +63,13 @@ public class RideService implements RideServiceInterface {
         rideRepository.save(rideFromDB);
     }
 
+    //method to delete the ride
     public void deleteRide(Integer id){
         Ride rideFromDB = rideRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ride not found"));
         rideRepository.deleteById(id);
     }
 
+    //method to get user rides
     public List<Ride> findUserRides(Authentication authentication) {
         String email = (String) authentication.getPrincipal();
         User userFromDb = userRepository.findByEmail(email);

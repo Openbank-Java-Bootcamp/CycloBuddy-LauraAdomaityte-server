@@ -22,6 +22,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
+//swagger is being used for better back-end documentation
 @SpringBootApplication
 @EnableSwagger2
 public class CycloBuddyServerApplication {
@@ -44,6 +45,7 @@ public class CycloBuddyServerApplication {
         };
     }
 
+    //pre-set data for the presentation
     @Bean
     CommandLineRunner run(UserService userService, RideService rideService, RouteService routeService) {
         return args -> {

@@ -17,18 +17,21 @@ public class RouteController implements RouteControllerInterface {
     @Autowired
     private RouteServiceInterface routeServiceInterface;
 
+    //get all routes endpoint
     @GetMapping("/routes")
     @ResponseStatus(HttpStatus.OK)
     public List<Route> getAllRoutes(){
         return routeServiceInterface.getAllRoutes();
     }
 
+    //get a route by id endpoint
     @GetMapping("/routes/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Route getRouteById(@PathVariable(name = "id") Integer id){
         return routeServiceInterface.getRouteById(id);
     }
 
+    //save a new route endpoint
     @PostMapping("/routes")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveTask(@RequestBody RouteDTO routeDTO){

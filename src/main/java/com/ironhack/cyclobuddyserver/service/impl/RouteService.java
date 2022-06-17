@@ -22,14 +22,18 @@ public class RouteService implements RouteServiceInterface {
     @Autowired
     private RideRepository rideRepository;
 
+
+    //method to get all routes
     public List<Route> getAllRoutes(){
         return routeRepository.findAll();
     }
 
+    //method to get the route by id
     public Route getRouteById(Integer id){
         return routeRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Route not found"));
     }
 
+    //method to save a new the route
     public void saveRoute(RouteDTO routeDTO){
         Route newRoute = new Route();
         newRoute.setDistance(routeDTO.getDistance());
