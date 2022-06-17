@@ -30,12 +30,14 @@ public class AuthorizationController implements AuthorizationControllerInterface
     @Autowired
     private UserRepository userRepository;
 
+    //user sign up endpoint
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public User saveUser(@RequestBody @Valid User user) {
         return userServiceInterface.saveUser(user);
     }
 
+    //user verification endpoint
     @GetMapping("/verify")
     @ResponseStatus(HttpStatus.OK)
     public String verifyToken(Authentication authentication) {

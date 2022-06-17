@@ -17,12 +17,14 @@ public class UserController implements UserControllerInterface {
     @Autowired
     private UserServiceInterface userServiceInterface;
 
+    //get a user by his/her id endpoint
     @GetMapping({"/users/{id}"})
     @ResponseStatus(HttpStatus.OK)
     public User getUserById(@PathVariable(name = "id") Integer userId) {
         return this.userServiceInterface.findUserById(userId);
     }
 
+    //edit user info endpoint
     @PutMapping("/users/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateRide(@PathVariable Integer id, @RequestBody User user){

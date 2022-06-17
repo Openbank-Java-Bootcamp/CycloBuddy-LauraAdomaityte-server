@@ -37,8 +37,7 @@ public class User {
     private Integer averageSpeed;
     private Integer averageKmPerMonth;
 
-
-
+    //user can have many rides
     @JsonIgnore
     @OneToMany(
             mappedBy="user"
